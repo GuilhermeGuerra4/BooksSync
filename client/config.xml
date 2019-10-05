@@ -18,10 +18,6 @@
   <allow-intent href="geo:*" />
   <platform name="android">
       <allow-intent href="market:*" />
-      <edit-config file="AndroidManifest.xml" target="/manifest/application/  activity[@android:label='@string/activity_name']" mode="merge">
-        <activity android:theme="@android:style/Theme.AppCompat.Light.NoActionBar"></activity>
-      </edit-config>
-
   </platform>
   <platform name="ios">
       <allow-intent href="itms:*" />
