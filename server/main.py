@@ -3,7 +3,7 @@ import random
 from sql import DB
 from config import Config
 from datetime import datetime
-from flask import Flask, render_template, jsonify, request, send_from_directory
+from flask import Flask, render_template, jsonify, request, send_from_directory, make_response
 
 App = Flask(__name__)
 App.config['UPLOAD_FOLDER'] =  'uploads/'
@@ -15,7 +15,7 @@ db = DB(config.DBNAME)
 
 @App.route('/')
 def Index():
-	return render_template
+	return render_template("index.html")
 
 
 
@@ -24,7 +24,9 @@ def Index():
 def GetBooks():
 	result = db.query("""SELECT * FROM books""")
 	result = result.fetchall()
-	return jsonify(result)
+	result = make_response(jsonify(result))
+	result.headers['Access-Control-Allow-Origin'] = '*'
+	return result
 
 
 @App.route('/api/v1/add-book', methods=['POST'])
@@ -54,7 +56,9 @@ def AddBook():
 		response['error'] = 'true'
 		response['msg'] = 'files not sent'
 
-	return jsonify(response)
+	result = make_response(jsonify(response))
+	result.headers['Access-Control-Allow-Origin'] = '*'
+	return result
 
 @App.route('/api/v1/delete-book', methods=['POST'])
 def DeleteBook():
@@ -69,7 +73,9 @@ def DeleteBook():
 		response['error'] = 'true'
 		response['msg'] = 'id not sent'
 
-	return jsonify(response)
+	result = make_response(jsonify(response))
+	result.headers['Access-Control-Allow-Origin'] = '*'
+	return result
 
 @App.route('/uploads/<string:folder>/<string:filename>')
 def Files(folder, filename):
@@ -77,7 +83,8 @@ def Files(folder, filename):
 
 
 if __name__ == "__main__":
-	App.run(debug=True)
+	App.run(host='0.0.0.0', port=80)
+	#App.run(debug=True)
 
 
 
