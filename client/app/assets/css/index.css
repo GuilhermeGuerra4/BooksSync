@@ -1,0 +1,191 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+body{
+	background: #f4f4f4;
+}
+
+
+header{
+	position: fixed;
+	width: 100%;
+	height: auto;
+	top: 0;
+	padding: 13px;
+	background-color: #010101;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+	z-index: 100;
+}
+
+header .add-book, header .see-books{
+	position: relative;
+	width: 25px;
+	height:25px;
+	border-radius: 100px;
+	float: right;
+	margin-right: 50px;
+	margin-left: -40px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	z-index: 100;
+}
+
+header .add-book:active, header .see-books:active{
+	filter: opacity(50%);
+	animation-duration: 0.2s;
+}
+
+	
+header .add-book{
+	background-image: url('../img/add.png');
+}
+
+header .see-books{
+	background-image: url('../img/books.png');
+}
+
+.rel-header{position: relative;width: 100%;height: 45px;}
+
+h1{
+	color:#fff;font-size: 1.4em;
+	font-style:normal;
+	font-weight: normal;
+	display: inline-block;
+}
+h2{padding: 15px;}
+
+.main{
+	width: 60%;
+	height: auto;
+	min-height: 100px;
+	background: #fff;
+	margin: 100px auto 50px;
+	padding-bottom: 40px;
+	border: solid 1px #ddd;
+	border-radius: 2px;
+}
+
+.main .books{
+	width: 100%;
+	height: auto;
+}
+
+.main .books .book{
+	width: 100%;
+	height: auto;
+	border-bottom: solid 1px #ddd;
+}
+
+.main .books .book .img{
+	width: auto;
+	height: auto;
+	display: inline-block;
+}
+
+.main .books .book .title{
+	width: auto;
+	height: auto;
+	display: inline-block;
+	font-size: 1.2em;
+}
+
+.main .books .book .link{
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 1px 10px 10px 10px; 
+}
+
+.main .books .book .img{margin: 10px;}
+
+.main .books .book .img img{
+	width: 80px;
+	height: 100px;
+}
+
+.main .form{
+	width: 50%;
+	height: auto;
+	margin: 0 auto 0;
+}
+
+.main .form .input{
+	width: 100%;
+	height: auto;
+	margin-bottom: 5px;
+}
+
+.main .form .input input, .main .form .input button{
+	width: 100%;
+	height: 30px;
+	font-size: 1.1em;
+	padding: 3px 3px 3px 3px;
+	box-sizing: border-box;
+	outline: none;
+	padding: 4px;
+}
+
+.main .form .input input:focus{
+	border: solid 1px;
+	border-color: #0088ff;
+}
+
+
+.main .form .in-file{
+	width: 100%;
+	padding: 5px;
+	background: #ddd;
+	padding: 3px 0px 3px 0px;
+	margin-bottom: 4px;
+	display: inline-block;
+}
+
+.main .form .input button{
+	background-color: #0088ff;
+	border: solid 1px #0088ff;
+	color: #fff;
+	cursor: pointer;
+	outline: none;
+	padding: 0px;
+}
+
+.main .form .input button:active{
+	filter: opacity(80%);
+}
+
+.main .form .input button img{
+	position: relative;
+	width: 34px;
+	height: 34px;
+	margin-top:-3px;
+}
+
+.main .form .response{
+	text-align: center;
+	color: #fa2200;
+}
+
+.main .form img{width: 30px;}
+
+
+.loading{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	margin: 20px auto 0;
+	background-image: url('../img/loadingW.gif');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media(max-width: 800px){
+	.main{
+		width: 100%;
+	}
+}
