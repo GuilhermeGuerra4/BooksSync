@@ -15,6 +15,7 @@ class DB:
 			self.conect()
 			cur = self.conn.cursor()
 			result = cur.execute(query)
+			self.conn.commit()
 			return result
 
 		except sqlite3.Error as error: 
