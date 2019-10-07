@@ -2,7 +2,7 @@ addBtc = document.getElementById('add-book');
 seeBtc = document.getElementById('see-books');
 main = document.getElementById('main');
 formSending = false;
-var host = 'http://192.168.1.71';
+var host = 'http://82.154.129.14';
 
 function loadAddBooksPage()
 {

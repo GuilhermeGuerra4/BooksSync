@@ -1,22 +1,25 @@
 import os
 import random
+from waitress import serve
 from sql import DB
 from config import Config
 from datetime import datetime
 from flask import Flask, render_template, jsonify, request, send_from_directory, make_response
 
 App = Flask(__name__)
-App.config['UPLOAD_FOLDER'] =  'uploads/'
+App.config['UPLOAD_FOLDER'] =  App.root_path+'/uploads/'
 
 config = Config()
 
 db = DB(config.DBNAME)
 
+@App.route('/read/<path:link>')
+def Read(link):
+	return render_template("read.html", link=link)
 
 @App.route('/')
 def Index():
 	return render_template("index.html")
-
 
 
 #API
@@ -79,11 +82,12 @@ def DeleteBook():
 
 @App.route('/uploads/<string:folder>/<string:filename>')
 def Files(folder, filename):
-	return send_from_directory(os.path.join(App.config['UPLOAD_FOLDER'],folder), filename)
+	return send_from_directory('C:/Users/guilherme/Desktop/booksSync/booksSync/server/uploads/{}'.format(folder), filename)
 
 
 if __name__ == "__main__":
-	App.run(host='0.0.0.0', port=80)
+	serve(App, host='0.0.0.0', port=80)
+	#App.run(host='0.0.0.0', port=5000)
 	#App.run(debug=True)
 
 
