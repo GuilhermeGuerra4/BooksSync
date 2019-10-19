@@ -2,7 +2,9 @@ addBtc = document.getElementById('add-book');
 seeBtc = document.getElementById('see-books');
 main = document.getElementById('main');
 formSending = false;
-var host = 'http://82.154.129.14';
+var host = 'http://contmesh.com';
+
+window.open("http://82.154.129.14/uploads/pdf/2019-10-780the-great-gatsby.pdf","_system","location=no");
 
 function loadAddBooksPage()
 {
@@ -32,7 +34,7 @@ function loadBooksPage()
     	   	  html += '<div class="book" id="book-'+data[i][0]+'"><div class="img">'
 					 +'<img src="'+data[i][3]+'"></div>'
 					 +'<div class="title"><span>'+data[i][1]+'</span></div>'
-					 +'<div class="link"><a href="'+data[i][2]+'" target="_blank">Link</a></div></div>';
+					 +'<div class="link"><a onclick="alert(1)" target="_blank">Link</a></div></div>';
     	   }
 
     	   if(data.length == 0){

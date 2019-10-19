@@ -32,7 +32,7 @@ function loadBooksPage()
     	   	  html += '<div class="book" id="book-'+data[i][0]+'"><div class="img">'
 					 +'<img src="'+data[i][3]+'"></div>'
 					 +'<div class="title"><span>'+data[i][1]+'</span></div>'
-					 +'<div class="link"><a href="'+host+'/read/'+data[i][2]+'" target="_blank">Link</a></div></div>';
+					 +'<div class="link"><a href="https://drive.google.com/viewerng/viewer?embedded=false&url='+data[i][2]+'" target="_blank">Link</a></div></div>';
     	   }
 
     	   if(data.length == 0){
